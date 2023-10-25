@@ -57,6 +57,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'british-blackjack-app'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8AFC5D025F0B4F2FA9AD1E7598A7AAAC }}
           package: ./dist/british-blackjack-app
