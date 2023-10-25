@@ -23,9 +23,9 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+         npm install
+         npm run build --prod
+        working-directory: .
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -57,6 +57,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'british-blackjack-app'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8AFC5D025F0B4F2FA9AD1E7598A7AAAC }}
-          package: .
+          package: ./dist/british-blackjack-app
